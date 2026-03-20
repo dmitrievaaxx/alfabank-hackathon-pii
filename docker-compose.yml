@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+
+    # Переменные окружения читаются из .env в корне проекта
+    env_file: .env
+
+    volumes:
+      # Кеш HuggingFace вынесен в volume — модель скачивается один раз
+      - hf_cache:/cache/huggingface
+
+    # Перезапускаем контейнер при падении (кроме явной остановки)
+    restart: unless-stopped
+
+volumes:
+  # Именованный volume для кеша моделей
+  hf_cache:

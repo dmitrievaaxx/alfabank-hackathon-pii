@@ -1,0 +1,15 @@
+# Секреты — никогда не попадают в образ
+.env
+
+# Git и IDE
+.git
+.gitignore
+.vscode
+.idea
+
+# Python артефакты
+__pycache__
+*.pyc
+*.pyo
+.venv
+*.egg-info
